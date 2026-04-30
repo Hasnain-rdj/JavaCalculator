@@ -22,7 +22,7 @@ Assert-Path $WarPath 'WAR file'
 Write-Host "Stopping Tomcat..."
 $shutdown = Join-Path $tomcatBin 'shutdown.bat'
 if (Test-Path -LiteralPath $shutdown) {
-  & cmd /c "\"$shutdown\"" | Out-Host
+  & $shutdown | Out-Host
 } else {
   Write-Host "shutdown.bat not found, continuing..."
 }
@@ -41,7 +41,7 @@ Copy-Item -LiteralPath $WarPath -Destination $destWar -Force
 Write-Host "Starting Tomcat..."
 $startup = Join-Path $tomcatBin 'startup.bat'
 Assert-Path $startup 'startup.bat'
-& cmd /c "\"$startup\"" | Out-Host
+& $startup | Out-Host
 
 Write-Host "Waiting for app to come up..."
 $deadline = (Get-Date).AddSeconds(60)
