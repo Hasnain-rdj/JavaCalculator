@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         MAVEN_HOME = tool 'Maven'
-        TOMCAT_HOME = 'C:\\tomcat'  // Change this to your Tomcat location
+        TOMCAT_HOME = 'C:\\Users\\Hasnain\\Desktop\\Devops_Jenkins\\opt\\tomcat\\apache-tomcat-11.0.21-windows-x64\\apache-tomcat-11.0.21'  // Change this to your Tomcat location
         WAR_FILE = 'target/calculator.war'
         APP_NAME = 'calculator'
     }
