@@ -1,5 +1,11 @@
 pipeline {
     agent any
+
+    triggers {
+        // Auto-build when you push to GitHub.
+        // This works even if Jenkins is running locally (no inbound webhook needed).
+        pollSCM('H/1 * * * *')
+    }
     
     environment {
         TOMCAT_HOME = 'C:\\Users\\Hasnain\\Desktop\\Devops_Jenkins\\opt\\tomcat\\apache-tomcat-11.0.21-windows-x64\\apache-tomcat-11.0.21'  // Change this to your Tomcat location
