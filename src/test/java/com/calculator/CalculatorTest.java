@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
     
     private Calculator calculator;
-    //Updating for Testing purpose
+    //Updating
     
     @Before
     public void setUp() {
