@@ -148,7 +148,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>🧮 Calculator</h1>
+        <h1>🧮 Hasnainulator</h1>
         
         <form class="calculator-form" onsubmit="calculateResult(event)">
             <div class="form-group">
