@@ -2,7 +2,6 @@ pipeline {
     agent any
     
     environment {
-        MAVEN_HOME = tool 'Maven'
         TOMCAT_HOME = 'C:\\Users\\Hasnain\\Desktop\\Devops_Jenkins\\opt\\tomcat\\apache-tomcat-11.0.21-windows-x64\\apache-tomcat-11.0.21'  // Change this to your Tomcat location
         WAR_FILE = 'target/calculator.war'
         APP_NAME = 'calculator'
@@ -20,7 +19,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '========== STAGE: Build =========='
-                bat '"%MAVEN_HOME%\\bin\\mvn.cmd" -V -B clean package'
+                bat 'call mvnw.cmd -V -B clean package -DskipTests'
                 echo 'Build completed successfully'
             }
         }
@@ -28,7 +27,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 echo '========== STAGE: Unit Tests =========='
-                bat '"%MAVEN_HOME%\\bin\\mvn.cmd" -V -B test'
+                bat 'call mvnw.cmd -V -B test'
                 echo 'Unit tests passed successfully'
             }
         }
@@ -64,7 +63,7 @@ pipeline {
     post {
         always {
             echo '========== Pipeline Completed =========='
-            cleanWs()
+            deleteDir()
         }
         
         success {
